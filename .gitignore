@@ -1,9 +1,9 @@
 # Compiled class file
 *.class
 
-*.idea
+.idea/
 out/
-
+*.xml
 *.DS_Store
 
 *.iml
