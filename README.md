@@ -1,2 +1,2 @@
 # lmu-cmsi-2120
-Homework for Data Structure class
+Homework for Data Structures class
