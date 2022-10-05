@@ -22,8 +22,7 @@ public record Quaternion(double a, double b, double c, double d) {
     }
 
     public Quaternion minus(Quaternion q2) {
-        Quaternion qMnius = new Quaternion(this.a() - q2.a(), this.b() - q2.b(), this.c() - q2.c(), this.d - q2.d());
-        return qMnius;
+        return new Quaternion(this.a() - q2.a(), this.b() - q2.b(), this.c() - q2.c(), this.d - q2.d());
     }
 
     public Quaternion times(Quaternion q2) {
@@ -49,7 +48,7 @@ public record Quaternion(double a, double b, double c, double d) {
     }
 
     public Quaternion inverse() {
-        Double cal = this.a()*this.a() + this.b()*this.b() + this.c()*this.c() + this.d()*this.d();
+        double cal = this.a()*this.a() + this.b()*this.b() + this.c()*this.c() + this.d()*this.d();
         Quaternion qInverse = new Quaternion(this.a()/cal, -(this.b()/cal), -(this.c()/cal), -(this.d()/cal));
         return qInverse;
     }
