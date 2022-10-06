@@ -2,31 +2,31 @@ package homework2;
 
 import java.util.NoSuchElementException;
 
-public class ExpandableArrayQueue implements Queue{
+public class ExpandableArrayQueue implements Queue {
 
     private static final int initialCapacity = 16;
     private int currentCapacity;
-    private Object[] q;
+    private Object[] queue;
     private int last;
 
     public ExpandableArrayQueue() {
         last = 0;
         currentCapacity = initialCapacity;
-        q = new Object[initialCapacity];
+        queue = new Object[initialCapacity];
     }
 
     private void increaseCapacity() {
         currentCapacity = 2 * currentCapacity;
-        Object[] largeQ = new Object[currentCapacity];
-        System.arraycopy(q, 0, largeQ, 0, q.length);
-        q = largeQ;
+        Object[] largeQueue = new Object[currentCapacity];
+        System.arraycopy(queue, 0, largeQueue, 0, queue.length);
+        queue = largeQueue;
     }
 
     private void decreaseCapacity() {
         currentCapacity = currentCapacity/2;
-        Object[] smallQ = new Object[currentCapacity];
-        System.arraycopy(q, 0, smallQ, 0, smallQ.length);
-        q = smallQ;
+        Object[] smallQueue = new Object[currentCapacity];
+        System.arraycopy(queue, 0, smallQueue, 0, smallQueue.length);
+        queue = smallQueue;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ExpandableArrayQueue implements Queue{
         if(last == currentCapacity) {
             increaseCapacity();
         }
-        q[last] = value;
+        queue[last] = value;
         last++;
     }
 
@@ -43,10 +43,10 @@ public class ExpandableArrayQueue implements Queue{
         if(isEmpty()) {
             throw new NoSuchElementException();
         }
-        Object dequeuedElement = q[0];
+        Object dequeuedElement = queue[0];
         last--;
-        System.arraycopy(q, 1, q, 0, q.length-1);
-        q[last] = null;
+        System.arraycopy(queue, 1, queue, 0, queue.length-1);
+        queue[last] = null;
 
         if(currentCapacity > initialCapacity && last < currentCapacity/4) {
             decreaseCapacity();
@@ -59,7 +59,7 @@ public class ExpandableArrayQueue implements Queue{
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return q[0];
+        return queue[0];
     }
 
     @Override
