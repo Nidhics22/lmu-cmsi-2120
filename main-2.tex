@@ -1,0 +1,297 @@
+%
+% LaTeX Problem Set Template 
+%
+
+%%%%%%%%PACKAGES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathdots}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{bm}
+\usepackage{listings}
+\PassOptionsToPackage{usenames,dvipsnames}{color}  %% Allow color names
+\usepackage{pdfpages}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\usepackage{framed}
+\usepackage{wasysym}
+\usepackage[thinlines]{easytable}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Data Structures and Algorithms\\HW \#4 }
+\author{Nidhi Prajapati & Michael David}
+\date{\today}
+\makeatletter
+\let\runauthor\@author
+\makeatother
+
+\lhead{\runauthor}
+\chead{HW 1}
+\rhead{\today}
+\lfoot{}
+\rfoot{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% start MZ
+\let\oldemptyset\emptyset
+\renewcommand{\emptyset}{\text{\O}}
+\renewcommand{\labelitemii}{$\bullet$}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newenvironment{prf}{{\bfseries Proof.}}{\qedsymbol}
+\renewcommand{\emph}[1]{\textit{\textbf{#1}}}
+\newcommand{\annotate}[1]{\textit{\textcolor{blue}{#1}}}
+\usepackage{mdframed}
+\usepackage{float}
+
+\makeatother
+% end MZ
+
+\definecolor{shadecolor}{gray}{0.95}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\parindent}{0pt}
+
+\pagestyle{fancy}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%%%%%%%%%%%%%%%%Document Begins Here!%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\section*{1}
+    \item Write $P(\{a, b, c\})$ in a form in which all elements are listed.
+        \begin{shaded} 
+        P(S) =  \{\{\}, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}
+        \end{shaded}        
+
+
+
+\section*{2}
+    \item How many partitions are there of $\{x \in \mathbb{N} | 1 \leq x \wedge x \geq 10\}$?
+        \begin{shaded} 
+        115975
+        \end{shaded}     
+
+
+
+
+
+\section*{3}
+    \item Let A be a set and m and n be positive integers. Would you say that $A^{m + n} = A^{m} * A^{n}$? Give arguments for or against accepting this equality as fact. (Hint: you may want to consider the sets $A * A^{2}$ and $A^{2} * A$)
+        \begin{shaded} 
+        Yes,  if we have the same base but different powers then $A^{m + n} = A^{m} * A^{n}$ would satisfy (e.g. $a^{12} = a^{5} + a^{7$ where which is equal to $a^{5} * a^ {7} = a^{5+7} = a^{12}$).
+        \end{shaded}     
+
+
+
+
+
+\section*{4}
+\item Express, in lambda notation, the function which when passed two functions f and g, returns the composition of f and g. (Don't use the predefined · symbol for composition. Actually define the meaning of composition in your answer.)
+        \begin{shaded} 
+        \lambda x : f(g(x))
+        \end{shaded}     
+
+
+\section*{5}
+    \item Let $f = \lambda x. 4x - 3x^{2}$?
+    \\a. What is $f^{0}(0.01)$?
+    \\$f^{0}(0.01) = 0.01$
+    \\b. What is $f^{1}(0.01)$?
+    \\$f^{1}(0.01) = 0.0397$
+    \\c. What is $f^{2}(0.01)$?
+    \\ $f^{2}(0.01) = 0.154$
+    \\d. What is $f^{5}(0.01)$?
+    \\$f^{5}(0.01) = 0.1713$
+    \\e. What is $f^{30}(0.01)$?
+    \\$f^{30}(0.01) = 1.286553251$
+    \\f. What is $f^{50}(0.01)$ according to Java?
+    \\ $f^{50}(0.01) = 1.3056006785398018$ according to Java
+    \\g. What is $f^{50}(0.01)$ according to your handheld calculator?
+    \\ $f^{50}(0.01) = 1.063193699$ according to the calculator
+    \\h. Explain why we can never write out the exact value, as a decimal number, of $f^{75}(0.01)$ in 10 point Times New Roman on printer paper that is produced on Earth.
+    \\There are too many digits after the decimal for us to get an exact value for $f^{75}(0.01)$. It's an irrational number that we cannot write to exact precision.
+    \\i. Do you think it will be possible in our lifetime whether we will even know the first digit of the decimal expansion of $f^{100}(0.01)$? Why or why not?     
+    \\ Yes. The uncertainty with rational numbers is in the latter decimal digits. So we should be able to determine the value of the first digit after the decimal.
+
+\section*{6}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation) 
+        \begin{shaded} 
+        \theta(2^n)
+        \end{shaded}     
+
+
+\section*{7}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        If n $\leq$ 1: There will be constant time complexity $\theta(1)$. If n>1: It will run into infinity loop. So we can not measure time complexity.
+        \end{shaded}   
+
+
+        
+\section*{8}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        \theta (nlogn)
+        \end{shaded}     
+
+
+
+\section*{9}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        \theta(nlogn)
+        \end{shaded}     
+
+
+\section*{10}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        \theta(nlogn)
+        \end{shaded}     
+
+\section*{11}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        \theta (nlogn)
+        \end{shaded}     
+
+
+\section*{12}
+    \item What is the time complexity of this code fragment? (Use $\theta$-notation)
+        \begin{shaded} 
+        \theta (nlogn)
+        \end{shaded}     
+
+
+
+\section*{13}
+    \item Give both the best-case and worst-case time complexities of this code fragment. (Use $\theta$-notation)
+        \begin{shaded} 
+        B(n): $\theta (logn)$
+        \\W(n): \theta (nlogn)
+        \end{shaded}     
+
+
+
+\section*{14}
+    \item Give both the best-case and worst-case time complexities of this code fragment. (Use $\theta$-notation)
+        \begin{shaded} 
+        B(n): \theta(1)
+        \\{} W(n): \theta(logn)
+        \end{shaded}    
+
+
+
+
+\section*{15}
+    \item What is the time complexity (in $\theta$-notation) of a procedure to print out the exact value of $2^{n}$, where n is a nonnegative (big) integer? The procedure described is supposed to print a result no matter how large the result may be.
+    \\
+    \\ \theta(n)
+        
+
+
+
+
+\section*{16}
+    \item An algorithm with time complexity T(n) = $n^{3}$ can process a 100-element list on our PC in 10 seconds.
+    \\ (a)How long would it take to process a 200-element list?
+    \\ It would take 80 seconds for the algorithm to process a 200-element list.
+    \\
+    \\ (b) If we ran the algorithm on a machine that was 10 times faster than our PC, how large of a list could we process in 30 seconds?
+    \\We could process a 311 (310.7) element list if the computer was 10 times faster.
+    \\
+    \\ (c) How much faster than our PC would a computer have to be in order to process a 1000000000-element list in a time span of 1 hour?
+    \\Our PC would have to be $4.6296x10^{16}$ times faster to process a 1000000000-element list in 1 hour.
+    \\
+        \begin{shaded} 
+        \end{shaded} 
+
+
+
+
+\section*{17}
+    \item An algorithm with complexity function T(n) = n log(n) processes a 64-element list in three minutes and 12 seconds on our PC.
+    \\ (a) How long does it take to process a 128-element list?
+    \\It would take our PC 7 minutes and 28 seconds to process a 128-element list.
+    \\
+    \\ (b) How large of a list could a computer that is 8 times faster than our PC process in 10 seconds?
+    \\ A computer that is 8 times faster could process a 32-element list in 10 seconds.
+    \\
+    \\ (c) How much faster would a computer have to be than our PC to process a list of size 10 in a second?
+    \\A computer would have to be 17 (16.61) times faster to process a list of size 10 in one second.
+    
+        \begin{shaded} 
+        \end{shaded} 
+
+
+\section*{18}
+    An algorithm with time complexity function T(n) = 2n log(n) can process a 32-element list in 2 minutes and 40 seconds on our PC.
+    \\ (a) How long would it take to process a 64 element list?
+    \\It would take 6 minutes and 24 seconds to process a 64 element list.
+    \\
+    \\ (b) If we ran the algorithm on a machine that was 4 times faster than our PC, how large of a list could we process in 16 seconds?
+    \\We would be able to process a 16-element list in 16 seconds.
+        \begin{shaded} 
+        \end{shaded} 
+
+
+\section*{19}
+    We have seen that there is little hope of solving problems of size 100 or so with algorithm complexity $\lambda n. 2^{n}$ even when billions of operations can be carried out per seconds. But what about algorithms of complexity $\lambda n. 1.1^{n}$? How do these algorithms compete with quadratic algorithms? In particular, if a billion operations can be performed in one second, up to what problem size will the $\lambda n. 1.1^{n}$ be faster than a $\lambda n. 2^{n}$ algorithm?
+        \begin{shaded} 
+    $\lambda n. 1.1^{n}$ increases in run-time significantly slower than $\lambda n. 2^{n}$ for input ranges from 0 to 50 ($\{n | 0 \leq n \leq 50\}$). After that, $\lambda n. 1.1^{n}$ grows sharply and intersects with $\lambda n. n^{2}$ at in input of 96 (95.717). $\lambda n. 1.1^{n}$ results in many more operations for subsequent input sizes (eg. For an input size of 200 (n=200), $\lambda n. n^{2}$ takes 40,000 operations while $\lambda n. 1.1^{n}$ will take 189,905,277 operations).
+        \end{shaded} 
+
+
+
+\section*{20}
+    \item Rank each of the following functions by growth rate: $$
+        \begin{shaded} 
+\\In descending order
+\\1. $\lambda n.\frac{2}{n}$
+\\2. $\lambda n.2^{nn}$
+\\3. $\lambda n.n^{n}$
+\\4. $\lambda n.n!$
+\\5. $\lambda n.2^{n}$
+\\6. $\lambda n.n^{3}$
+\\7. $\lambda n.2^{\frac{n}{2}}$
+\\8. $\lambda n.(log(n))^{n}$
+\\9. $\lambda n.n^{2}log(n)$
+\\10. $\lambda n.n^{2}$
+\\11. $\lambda n.n^{1.5}$
+\\12. $\lambda n.n(log(n))^{2}$
+\\13. $\lambda n.n(log(n^{2})$
+\\14. $\lambda n.n(log(n)) = \lambda n. log(n^{n})$
+\\15. $\lambda n.n$
+\\16. $\lambda n.nlog(log(n))$
+\\17. $\lambda n.\sqrt{n}$
+\\18. $\lambda n.2^{log(n)}$
+\\19. $\lambda n.2(log(n))$
+\\20. $\lambda n.2$
+\\21. $\lambda n.log(\sqrt{n})$
+        \end{shaded} 
+
+
+
+        
+\end{document}
